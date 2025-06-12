@@ -13,6 +13,7 @@ app.use(express.json());
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 app.post('/generate', async (req, res) => {
+    res.send('Welcome to the Git Commit Message Generator!');
     const { diff } = req.body;
 
     if (!diff) {
@@ -30,7 +31,7 @@ app.post('/generate', async (req, res) => {
         res.json({ message: text.trim() });
     } catch (err) {
         console.error('Error:', err);
-        res.status(500).json({ error: 'Failed to generate commit message' });
+        res.status(500).json({ error: 'Failed to generate commit message..' });
     }
 });
 
