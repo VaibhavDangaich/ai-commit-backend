@@ -63,5 +63,5 @@ app.post('/generate', async (req, res) => {
 // Set the port for the server to listen on, defaulting to 3000
 const PORT = process.env.PORT || 3000;
 
-// Start the server and log the port it's listening on
+// Start the server and log the port it's listening 
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
