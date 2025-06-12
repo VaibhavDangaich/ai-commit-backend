@@ -16,7 +16,7 @@ app.post('/generate', async (req, res) => {
     const { diff } = req.body;
 
     if (!diff) {
-        return res.status(400).json({ error: 'Missing diff data' });
+        return res.status(400).json({ error: 'Missing diff data..' });
     }
 
     try {
