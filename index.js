@@ -3,7 +3,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI } = '@google/generative-ai';
 
 // Load environment variables from .env file (for local development)
 dotenv.config();
@@ -14,8 +14,9 @@ const app = express();
 // In a production environment, you might want to restrict this to specific origins.
 app.use(cors());
 
-// Parse JSON request bodies
-app.use(express.json());
+// Parse JSON request bodies with an increased limit
+// The default limit is often 100kb. We are increasing it to 50MB to handle large diffs.
+app.use(express.json({ limit: '50mb' })); // <--- Added this line to increase the payload limit
 
 // Initialize Google Generative AI with the API key from environment variables
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
