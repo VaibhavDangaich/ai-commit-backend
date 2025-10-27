@@ -39,7 +39,7 @@ app.post('/generate', async (req, res) => {
 
     try {
         // Get the generative model (using gemini-1.5-flash as specified)
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2,0-flash' });
 
         // Construct the prompt for the AI model
         const prompt = `Generate a concise Git commit message based on the following staged diff:\n\n${diff},give a concise primary then give little more detailed commit message below it so that when i click on the message icon under commits on my repo in github it shows detailed commit too,Make sure to never use backticks character in the commit message`;
